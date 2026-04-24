@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="El Jardín Adamita — doctrina del retorno al estado original. Filosofía gnóstica, desnudez como memoria, el Edén como principio. Comunidad El Círculo.">
+<meta name="keywords" content="adamitas, jardín edén, gnosis, desnudez filosófica, retorno al principio, adamismo, serpiente gnóstica, filosofía espiritual, esotérico, dios adamita">
+<title>El Jardín Adamita — Memorias del Principio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #F2E8CC;
+    --parchment-dark: #E8D5A3;
+    --ink: #1C1008;
+    --sepia: #6B3F1A;
+    --gold: #B8892A;
+    --gold-light: #D4A843;
+    --faded: #8B6940;
+    --dark-bg: #0D0804;
+    --dark-mid: #1A1008;
+    --shadow: rgba(0,0,0,0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark-bg);
+    color: var(--parchment);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(to bottom, rgba(13,8,4,0.98), transparent);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--faded);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    font-weight: 300;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 40%, rgba(184,137,42,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 100% 80% at 50% 100%, rgba(107,63,26,0.15) 0%, transparent 60%);
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(184,137,42,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(184,137,42,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+
+  .hero-ornament {
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 0.8em;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--parchment);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.6s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--gold);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.9s forwards;
+  }
+
+  .hero-divider {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 3rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.1s forwards;
+  }
+
+  .hero-quote {
+    max-width: 600px;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--faded);
+    line-height: 1.9;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.3s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 3.5rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 1.5s forwards;
+  }
+
+  .btn {
+    padding: 0.9rem 2.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184,137,42,0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(184,137,42,0.4);
+  }
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    background: rgba(184,137,42,0.05);
+    transform: translateY(-2px);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 7rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--parchment);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  /* ── INTRO SECTION ── */
+  #origen {
+    border-top: 1px solid rgba(184,137,42,0.1);
+    padding-top: 6rem;
+  }
+
+  .intro-text {
+    font-size: 1.15rem;
+    color: rgba(242,232,204,0.85);
+    line-height: 1.95;
+    margin-bottom: 1.8rem;
+  }
+
+  .intro-text em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* ── DOCTRINE CARDS ── */
+  #doctrina {
+    background: linear-gradient(to bottom, transparent, rgba(26,16,8,0.5), transparent);
+    max-width: 100%;
+    padding: 7rem 2rem;
+  }
+
+  .doctrine-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .card {
+    border: 1px solid rgba(184,137,42,0.2);
+    padding: 2.2rem;
+    background: rgba(26,16,8,0.6);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .card:hover::before { transform: scaleX(1); }
+  .card:hover { border-color: rgba(184,137,42,0.4); background: rgba(40,25,10,0.7); }
+
+  .card-number {
+    font-family: 'IM Fell English', serif;
+    font-size: 2.5rem;
+    color: rgba(184,137,42,0.2);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+
+  .card-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    color: var(--faded);
+    line-height: 1.8;
+  }
+
+  /* ── EXCERPT ── */
+  #extracto {
+    border-top: 1px solid rgba(184,137,42,0.1);
+  }
+
+  .book-extract {
+    border-left: 2px solid var(--gold);
+    padding: 2rem 2.5rem;
+    background: rgba(26,16,8,0.5);
+    margin: 2rem 0;
+  }
+
+  .book-extract-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .verse-number {
+    color: var(--gold);
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .verse-text {
+    font-style: italic;
+    color: rgba(242,232,204,0.9);
+    line-height: 1.95;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+  }
+
+  /* ── FORUM / EL CÍRCULO ── */
+  #circulo {
+    max-width: 100%;
+    background: var(--dark-mid);
+    border-top: 1px solid rgba(184,137,42,0.15);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+    padding: 7rem 2rem;
+  }
+
+  .circulo-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .forum-intro {
+    font-size: 1.1rem;
+    color: rgba(242,232,204,0.75);
+    margin-bottom: 3rem;
+    line-height: 1.9;
+  }
+
+  /* Forum threads */
+  .threads {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(184,137,42,0.1);
+    border: 1px solid rgba(184,137,42,0.15);
+    margin-bottom: 3rem;
+  }
+
+  .thread-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(13,8,4,0.9);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--faded);
+    border-bottom: 1px solid rgba(184,137,42,0.15);
+  }
+
+  .thread {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    padding: 1.4rem 1.5rem;
+    background: rgba(13,8,4,0.7);
+    align-items: center;
+    transition: background 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .thread:hover { background: rgba(26,16,8,0.95); }
+
+  .thread-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.05rem;
+    color: var(--parchment);
+    margin-bottom: 0.2rem;
+  }
+
+  .thread-meta {
+    font-size: 0.78rem;
+    color: var(--faded);
+    letter-spacing: 0.05em;
+  }
+
+  .thread-tag {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid rgba(184,137,42,0.3);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-right: 0.5rem;
+  }
+
+  .thread-replies {
+    text-align: center;
+    min-width: 50px;
+  }
+
+  .thread-replies-num {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    display: block;
+  }
+
+  .thread-replies-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faded);
+  }
+
+  .thread-date {
+    font-size: 0.78rem;
+    color: var(--faded);
+    min-width: 70px;
+    text-align: right;
+  }
+
+  /* New thread form */
+  .new-thread {
+    border: 1px solid rgba(184,137,42,0.2);
+    padding: 2.5rem;
+    background: rgba(13,8,4,0.5);
+  }
+
+  .new-thread h3 {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .new-thread p {
+    font-size: 0.9rem;
+    color: var(--faded);
+    margin-bottom: 1.8rem;
+  }
+
+  .form-group { margin-bottom: 1.2rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: rgba(26,16,8,0.8);
+    border: 1px solid rgba(184,137,42,0.2);
+    color: var(--parchment);
+    padding: 0.8rem 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: rgba(184,137,42,0.6);
+  }
+
+  .form-group select option { background: #1A1008; }
+
+  .form-group textarea { min-height: 140px; }
+
+  /* ── SERPENT SECTION ── */
+  #serpiente {
+    border-top: 1px solid rgba(184,137,42,0.1);
+  }
+
+  .serpent-quote {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-style: italic;
+    color: var(--parchment);
+    line-height: 1.6;
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2.5rem;
+    border: 1px solid rgba(184,137,42,0.15);
+    position: relative;
+  }
+
+  .serpent-quote::before,
+  .serpent-quote::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-style: normal;
+  }
+  .serpent-quote::before { top: 1rem; left: 1.2rem; }
+  .serpent-quote::after  { bottom: 1rem; right: 1.2rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(184,137,42,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    color: var(--faded);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-ornament {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    margin: 1.5rem 0;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--dark-mid);
+    border: 1px solid rgba(184,137,42,0.3);
+    max-width: 680px;
+    width: 100%;
+    padding: 3rem;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.2rem; right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--faded);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--gold); }
+
+  .modal-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--faded);
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .modal-body {
+    font-size: 1rem;
+    color: rgba(242,232,204,0.85);
+    line-height: 1.95;
+    margin-bottom: 2rem;
+  }
+
+  .comment {
+    border-top: 1px solid rgba(184,137,42,0.1);
+    padding: 1.5rem 0;
+  }
+
+  .comment-author {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .comment-text {
+    font-size: 0.95rem;
+    color: rgba(242,232,204,0.75);
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-line {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 2s forwards;
+  }
+
+  .scroll-line span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--faded);
+  }
+
+  .scroll-line-bar {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: pulse-line 2s ease infinite;
+  }
+
+  @keyframes pulse-line {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .thread { grid-template-columns: 1fr; }
+    .thread-header { display: none; }
+    .thread-replies, .thread-date { display: none; }
+    section { padding: 4rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">✦ El Jardín Adamita</a>
+  <ul class="nav-links">
+    <li><a href="#origen">El Origen</a></li>
+    <li><a href="#doctrina">Doctrina</a></li>
+    <li><a href="#extracto">El Libro</a></li>
+    <li><a href="#circulo">El Círculo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+
+  <p class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</p>
+  <h1 class="hero-title">El Jardín<br>Adamita</h1>
+  <p class="hero-subtitle">Memorias del Principio</p>
+  <div class="hero-divider"></div>
+  <p class="hero-quote">
+    «No vine a traerte una ley nueva.<br>
+    Vine a recordarte la única que existió<br>
+    antes de todas las demás: que eras bueno,<br>
+    y que lo olvidaste.»
+  </p>
+  <div class="hero-cta">
+    <a href="#origen" class="btn btn-primary">Entrar al Jardín</a>
+    <a href="#circulo" class="btn btn-secondary">El Círculo</a>
+  </div>
+
+  <div class="scroll-line">
+    <span>Descender</span>
+    <div class="scroll-line-bar"></div>
+  </div>
+</div>
+
+<!-- ORIGEN -->
+<section id="origen">
+  <span class="section-label reveal">El Origen</span>
+  <h2 class="section-title reveal">¿Quiénes son<br>los Adamitas?</h2>
+  <div class="section-divider reveal"></div>
+
+  <p class="intro-text reveal">
+    Los adamitas son uno de los movimientos más antiguos y mal comprendidos de la historia espiritual de Occidente.
+    Surgieron en los siglos II y III dentro del gnosticismo, y reaparecieron en distintas formas
+    a lo largo de la Edad Media europea. Su idea central es tan simple que resulta radical:
+    <em>el ser humano nació entero, y aprendió a fragmentarse.</em>
+  </p>
+  <p class="intro-text reveal">
+    Para los adamitas, la Caída no fue un castigo divino. Fue el primer olvido.
+    El día en que el ser humano aprendió a tener vergüenza de lo que era,
+    comenzó a construir muros entre él y el mundo, entre él y los demás,
+    entre él y sí mismo. La ropa fue la primera consecuencia. No la última.
+  </p>
+  <p class="intro-text reveal">
+    Este espacio no es una religión ni una secta. Es un jardín.
+    Y en un jardín, <em>no hay jerarquía entre las plantas.</em>
+  </p>
+</section>
+
+<!-- DOCTRINA -->
+<section id="doctrina" style="max-width:100%; padding: 7rem 2rem;">
+  <div class="doctrine-inner">
+    <span class="section-label reveal">La Doctrina</span>
+    <h2 class="section-title reveal">Los Pilares<br>del Retorno</h2>
+    <div class="section-divider reveal"></div>
+
+    <div class="cards-grid">
+      <div class="card reveal">
+        <div class="card-number">I</div>
+        <div class="card-title">El Cuerpo</div>
+        <p class="card-text">El cuerpo es el primer hogar. Fue construido antes que cualquier ciudad, antes que cualquier frontera. Quien no habita su cuerpo no habita en ningún lugar verdadero.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-number">II</div>
+        <div class="card-title">La Desnudez</div>
+        <p class="card-text">No como provocación, sino como memoria. Desprenderse de la ropa en un lugar seguro no es una declaración al mundo. Es una conversación consigo mismo.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-number">III</div>
+        <div class="card-title">La Verdad</div>
+        <p class="card-text">La segunda ropa que se pone el ser humano es el lenguaje decorado. Hablar sin adornos que confundan, sin ropaje retórico que disfrace la verdad.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-number">IV</div>
+        <div class="card-title">La Comunidad</div>
+        <p class="card-text">No una iglesia. Un jardín. Sin jerarquía entre las plantas. Cada voz tiene el mismo peso, y ese peso es exactamente uno.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-number">V</div>
+        <div class="card-title">La Serpiente</div>
+        <p class="card-text">Para los gnósticos, la serpiente no era el mal. Era el mensajero del conocimiento verdadero. La serpiente dijo la verdad. El ser humano respondió con ropa.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-number">VI</div>
+        <div class="card-title">El Retorno</div>
+        <p class="card-text">No es retroceso. Es la dirección más valiente que puede tomar un ser humano: ir hacia adentro cuando el mundo entero empuja hacia afuera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRACTO -->
+<section id="extracto">
+  <span class="section-label reveal">El Libro</span>
+  <h2 class="section-title reveal">Memorias<br>del Principio</h2>
+  <div class="section-divider reveal"></div>
+
+  <p class="intro-text reveal">
+    La doctrina adamita completa está recogida en once libros. Aquí algunos de sus versículos.
+  </p>
+
+  <div class="book-extract reveal">
+    <p class="book-extract-label">Libro Segundo — Del Cuerpo</p>
+    <p class="verse-text"><span class="verse-number">I.</span>El cuerpo es el primer hogar. Fue construido antes que cualquier casa, antes que cualquier ciudad, antes que cualquier frontera trazada en un mapa. Quien no habita su cuerpo no habita en ningún lugar verdadero.</p>
+    <p class="verse-text"><span class="verse-number">V.</span>No hay cuerpo incorrecto. Esta frase parece simple. No lo es. Requiere años de trabajo verdadero para que deje de ser solo una idea y se convierta en algo que se siente en los huesos.</p>
+  </div>
+
+  <div class="book-extract reveal">
+    <p class="book-extract-label">Libro Noveno — De la Serpiente</p>
+    <p class="verse-text"><span class="verse-number">II.</span>¿Quién en esa historia quería que el ser humano permaneciera ignorante? Dios. ¿Y quién quiso que accediera al conocimiento? La serpiente. Esta sola pregunta cambia todo.</p>
+    <p class="verse-text"><span class="verse-number">VI.</span>La serpiente dijo la verdad. El ser humano respondió con ropa. En esa secuencia está el diagnóstico completo del mundo caído.</p>
+  </div>
+
+  <div class="book-extract reveal">
+    <p class="book-extract-label">Libro Décimo — Del Jardín y de Dios</p>
+    <p class="verse-text"><span class="verse-number">V.</span>Dios, en el adamismo, es opcional. Lo que no es opcional es el principio. Existió un momento en que el ser humano era una sola cosa consigo mismo. Ese momento es el norte. El resto es mapa, no territorio.</p>
+  </div>
+
+  <div class="reveal" style="margin-top: 2.5rem;">
+    <a href="#circulo" class="btn btn-primary">Unirse a la conversación</a>
+  </div>
+</section>
+
+<!-- SERPIENTE QUOTE -->
+<section id="serpiente" style="text-align:center;">
+  <div class="serpent-quote reveal">
+    «No los expulsó Dios.<br>
+    Los expulsó la vergüenza que aprendieron<br>
+    a sentir de sí mismos.<br>
+    La tela fue la primera consecuencia.<br>
+    No la última.»
+    <br><br>
+    <small style="color: var(--faded); font-size: 0.8rem; letter-spacing: 0.1em; font-style: normal;">— Libro Tercero, Versículo VII</small>
+  </div>
+</section>
+
+<!-- EL CÍRCULO — FORO -->
+<section id="circulo" style="max-width:100%; background: var(--dark-mid); border-top: 1px solid rgba(184,137,42,0.15); border-bottom: 1px solid rgba(184,137,42,0.15); padding: 7rem 2rem;">
+  <div class="circulo-inner">
+    <span class="section-label reveal">La Comunidad</span>
+    <h2 class="section-title reveal">El Círculo</h2>
+    <div class="section-divider reveal"></div>
+
+    <p class="forum-intro reveal">
+      El Círculo es el espacio de conversación del Jardín Adamita. No hay jerarquías.
+      No hay moderadores de doctrina. Solo personas que buscan, preguntan y recuerdan.
+      Entra con una pregunta o con una idea. Sal con algo que no tenías.
+    </p>
+
+    <!-- Thread list -->
+    <div class="threads reveal">
+      <div class="thread-header">
+        <span>Conversación</span>
+        <span>Voces</span>
+        <span>Última entrada</span>
+      </div>
+
+      <div class="thread" onclick="openModal('thread1')">
+        <div>
+          <span class="thread-tag">Filosofía</span>
+          <div class="thread-title">¿La desnudez es un acto político o espiritual?</div>
+          <div class="thread-meta">Iniciado por <em>sin_costura</em> · Doctrina Adamita</div>
+        </div>
+        <div class="thread-replies">
+          <span class="thread-replies-num">7</span>
+          <span class="thread-replies-label">voces</span>
+        </div>
+        <div class="thread-date">Hoy</div>
+      </div>
+
+      <div class="thread" onclick="openModal('thread2')">
+        <div>
+          <span class="thread-tag">Gnosis</span>
+          <div class="thread-title">La serpiente como aliada — ¿héroes o villanos del Génesis?</div>
+          <div class="thread-meta">Iniciado por <em>el_que_recuerda</em> · Teología</div>
+        </div>
+        <div class="thread-replies">
+          <span class="thread-replies-num">12</span>
+          <span class="thread-replies-label">voces</span>
+        </div>
+        <div class="thread-date">Ayer</div>
+      </div>
+
+      <div class="thread" onclick="openModal('thread3')">
+        <div>
+          <span class="thread-tag">Práctica</span>
+          <div class="thread-title">Los ritos del Jardín — cómo empezar desde cero</div>
+          <div class="thread-meta">Iniciado por <em>primer_despojo</em> · Comunidad</div>
+        </div>
+        <div class="thread-replies">
+          <span class="thread-replies-num">5</span>
+          <span class="thread-replies-label">voces</span>
+        </div>
+        <div class="thread-date">3 días</div>
+      </div>
+
+      <div class="thread" onclick="openModal('thread4')">
+        <div>
+          <span class="thread-tag">Historia</span>
+          <div class="thread-title">Los Picardos medievales y su exterminación — ¿por qué tanto miedo?</div>
+          <div class="thread-meta">Iniciado por <em>memoria_antigua</em> · Historia</div>
+        </div>
+        <div class="thread-replies">
+          <span class="thread-replies-num">9</span>
+          <span class="thread-replies-label">voces</span>
+        </div>
+        <div class="thread-date">1 semana</div>
+      </div>
+    </div>
+
+    <!-- New thread form -->
+    <div class="new-thread reveal">
+      <h3>Abrir una conversación</h3>
+      <p>Plantea una pregunta, comparte una idea, o simplemente di lo que llevas dentro sin saber cómo nombrarlo.</p>
+
+      <div class="form-group">
+        <label>Tu nombre en el jardín</label>
+        <input type="text" placeholder="Un alias, anónimo si prefieres...">
+      </div>
+      <div class="form-group">
+        <label>Categoría</label>
+        <select>
+          <option>Filosofía</option>
+          <option>Gnosis y Teología</option>
+          <option>Práctica y Ritos</option>
+          <option>Historia Adamita</option>
+          <option>El Cuerpo</option>
+          <option>La Serpiente</option>
+          <option>Otros</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tu pregunta o idea</label>
+        <input type="text" placeholder="Título de la conversación...">
+      </div>
+      <div class="form-group">
+        <label>Desarrolla</label>
+        <textarea placeholder="El jardín escucha sin juzgar..."></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="submitThread()">Plantar la semilla</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">El Jardín Adamita</div>
+  <p class="footer-text">Memorias del Principio · Doctrina Adamita</p>
+  <p class="footer-text" style="font-style:italic; color: rgba(139,105,64,0.6); font-size: 0.8rem;">
+    Este jardín no tiene dueño. Pertenece a todos los que recuerdan.
+  </p>
+  <div class="footer-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+  <p class="footer-text" style="font-size: 0.75rem;">
+    adamitas · gnosis · edén · serpiente · principio · desnudez · retorno · jardín
+  </p>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-thread1" onclick="closeModal(event, 'thread1')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect('thread1')">✕</button>
+    <span class="thread-tag">Filosofía</span>
+    <h2 class="modal-title" style="margin-top:0.8rem;">¿La desnudez es un acto político o espiritual?</h2>
+    <span class="modal-tag">sin_costura · Hoy</span>
+    <p class="modal-body">
+      Llevo tiempo pensando en esto. Cuando alguien practica la desnudez consciente,
+      ¿está haciendo una declaración sobre la sociedad que le rodea, o está teniendo
+      una conversación exclusivamente interna? ¿Puede ser las dos cosas a la vez sin
+      que se contradigan?
+    </p>
+    <div class="comment">
+      <div class="comment-author">el_que_recuerda</div>
+      <p class="comment-text">Para mí la distinción no existe. Cualquier acto verdaderamente interno acaba siendo político, porque cambia cómo te relacionas con el mundo. La desnudez como memoria te hace menos manejable. Eso ya es político.</p>
+    </div>
+    <div class="comment">
+      <div class="comment-author">jardin_abierto</div>
+      <p class="comment-text">El problema es cuando se convierte solo en lo político. Entonces pierde la raíz. El adamita no se desnuda para protestar. Se desnuda para recordar. Si de eso se deriva algo político, bien. Pero no es el punto de partida.</p>
+    </div>
+    <div style="margin-top:2rem;">
+      <div class="form-group">
+        <label>Tu voz</label>
+        <textarea placeholder="Añade algo a esta conversación..."></textarea>
+      </div>
+      <button class="btn btn-primary">Hablar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-thread2" onclick="closeModal(event, 'thread2')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect('thread2')">✕</button>
+    <span class="thread-tag">Gnosis</span>
+    <h2 class="modal-title" style="margin-top:0.8rem;">La serpiente como aliada</h2>
+    <span class="modal-tag">el_que_recuerda · Ayer</span>
+    <p class="modal-body">
+      Los ofitas y los naasenos leían el Génesis al revés. Para ellos la serpiente
+      era el mensajero de la luz verdadera y el Dios que expulsó a Adán era el Demiurgo,
+      un dios menor y celoso. ¿Cómo encaja esto con la doctrina adamita?
+      ¿Es la serpiente símbolo positivo o negativo para nosotros?
+    </p>
+    <div class="comment">
+      <div class="comment-author">sin_costura</div>
+      <p class="comment-text">Creo que es ambivalente, y eso la hace más honesta que cualquier símbolo unívoco. Enredada en la ropa, es cómplice del olvido. Erguida frente al árbol, es mensajera del conocimiento. Depende de hacia dónde mira.</p>
+    </div>
+    <div class="comment">
+      <div class="comment-author">primer_despojo</div>
+      <p class="comment-text">Lo que me parece más interesante es que la serpiente hizo bien y el ser humano respondió con ropa. El error no fue comer el fruto. El error fue cubrirse después. La vergüenza no vino del conocimiento. Vino del miedo a lo que el conocimiento reveló.</p>
+    </div>
+    <div style="margin-top:2rem;">
+      <div class="form-group">
+        <label>Tu voz</label>
+        <textarea placeholder="Añade algo a esta conversación..."></textarea>
+      </div>
+      <button class="btn btn-primary">Hablar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-thread3" onclick="closeModal(event, 'thread3')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect('thread3')">✕</button>
+    <span class="thread-tag">Práctica</span>
+    <h2 class="modal-title" style="margin-top:0.8rem;">Los ritos del Jardín — cómo empezar</h2>
+    <span class="modal-tag">primer_despojo · 3 días</span>
+    <p class="modal-body">
+      Llevo poco tiempo leyendo la doctrina y me pregunto por dónde empezar de forma práctica.
+      ¿El Rito del Amanecer es suficiente para comenzar? ¿Se practica solo o hay comunidades físicas?
+    </p>
+    <div class="comment">
+      <div class="comment-author">jardin_abierto</div>
+      <p class="comment-text">El Rito del Amanecer es perfecto para empezar precisamente porque es pequeño. Tres respiraciones antes de vestirte. Solo eso. No hace falta más al principio. Lo difícil no es el rito. Es que sea honesto.</p>
+    </div>
+    <div style="margin-top:2rem;">
+      <div class="form-group">
+        <label>Tu voz</label>
+        <textarea placeholder="Añade algo a esta conversación..."></textarea>
+      </div>
+      <button class="btn btn-primary">Hablar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-thread4" onclick="closeModal(event, 'thread4')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect('thread4')">✕</button>
+    <span class="thread-tag">Historia</span>
+    <h2 class="modal-title" style="margin-top:0.8rem;">Los Picardos medievales</h2>
+    <span class="modal-tag">memoria_antigua · 1 semana</span>
+    <p class="modal-body">
+      Jan Žižka los exterminó militarmente en 1421. Un movimiento espiritual pacífico,
+      eliminado por un ejército. ¿Qué tenían que decir que asustaba tanto?
+    </p>
+    <div class="comment">
+      <div class="comment-author">el_que_recuerda</div>
+      <p class="comment-text">Lo que asustaba no era la desnudez. Era la igualdad que implica. Desnudo, el noble y el siervo son lo mismo. Esa idea sola era suficiente para justificar un ejército.</p>
+    </div>
+    <div style="margin-top:2rem;">
+      <div class="form-group">
+        <label>Tu voz</label>
+        <textarea placeholder="Añade algo a esta conversación..."></textarea>
+      </div>
+      <button class="btn btn-primary">Hablar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Modals
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(e, id) {
+    if (e.target === document.getElementById('modal-' + id)) {
+      closeModalDirect(id);
+    }
+  }
+  function closeModalDirect(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  // Submit thread (demo)
+  function submitThread() {
+    const inputs = document.querySelectorAll('.new-thread input, .new-thread textarea');
+    const title = inputs[1].value.trim();
+    if (!title) {
+      inputs[1].style.borderColor = 'rgba(184,137,42,0.8)';
+      inputs[1].placeholder = 'El jardín necesita que digas algo...';
+      return;
+    }
+    const btn = document.querySelector('.new-thread .btn');
+    btn.textContent = 'La semilla ha sido plantada ✦';
+    btn.style.background = 'rgba(184,137,42,0.3)';
+    btn.style.color = 'var(--gold)';
+    inputs.forEach(i => i.value = '');
+    setTimeout(() => {
+      btn.textContent = 'Plantar la semilla';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  }
+
+  // Smooth nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
